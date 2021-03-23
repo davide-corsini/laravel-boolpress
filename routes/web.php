@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')
+//Cartella in cui é situtato il controller per GUEST
+->namespace('Admin')
+->middleware('auth')
+->group(function(){
+    Route::get('/', 'HomeController@index')
+    ->name('home');
+    //successivamente posso inserirci tutte le rotte di cui ho bisogno
+});
+
+// Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');

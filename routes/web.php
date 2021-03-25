@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('index');
 
 Auth::routes();
+
+//questa route mi indirizza grazie al PostController a tutti i post grazie al metodo @index
 Route::get('/posts', 'PostController@index')->name('guest.post.index');
 
-
+//questa route mi indirizza al post selezionato grazie al PostController e al metodo @show
 Route::get('/posts/{slug}', 'PostController@show')->name('guest.post.show');
 
 Route::prefix('admin')

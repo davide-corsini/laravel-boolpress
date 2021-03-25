@@ -27,10 +27,17 @@ class PostSeeder extends Seeder
             $newPost->title = $faker->sentence(4);
             $newPost->content = $faker->text(500);
             $slug = Str::slug('titolo-numero'); //in teoria ci andrebbe messo il title
+            
+            //se postPresente risulterá NULL allora non entro nel ciclo while
             $postPresente = Post::where('slug', $slug)->first();
+            
+            //Slug Iniziale mi serve per evitare ripetizioni di numero
             $slugIniziale = $slug;
+            //variabile contatore
             $contatore = 1;
+            //Se postPresente é vero
             while ($postPresente) {
+                //allora slug aggiungi 1
                 $slug = $slugIniziale . '-' . $contatore;
                 $postPresente = Post::where('slug', $slug)->first();
                 $contatore++;

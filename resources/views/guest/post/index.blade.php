@@ -5,7 +5,7 @@
 
 
     <h1>Tutti i post del mio Blog</h1>
-
+    {{--Ciclo su variabile $array associativa in metodo index del Post Controller--}}
     @foreach ($array as $item)
         <div class="card" style="width: 18rem;">
             <div class="card-body">

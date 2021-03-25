@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('index');
 
 Auth::routes();
+Route::get('/posts', 'PostController@index')->name('guest.post.index');
 
+
+Route::get('/posts/{slug}', 'PostController@show')->name('guest.post.show');
 
 Route::prefix('admin')
 //Cartella in cui é situtato il controller per GUEST

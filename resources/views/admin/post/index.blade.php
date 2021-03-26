@@ -19,15 +19,15 @@
                 <td>
                     {{--In teoria lui si aspetta un id ma laravel é forte e puo semplicemente completarlo senza freccia id --}}
                     <a class="btn btn-outline-info" href="{{ route('post.show', $item->slug) }}">Dettagli</a>
-                    {{-- <a class="btn btn-outline-warning" href="{{ route('post.edit', ['movie' => $item->id]) }}">Modifica</a> --}}
+                    <a class="btn btn-outline-warning" href="{{ route('post.edit', $item) }}">Modifica</a>
                     
-                    {{-- <form class="d-inline-block" method="post" action="{{ route('post.destroy', $item->id) }}"> --}}
+                    <form class="d-inline-block" method="post" action="{{ route('post.destroy', $item) }}">
 
-                        {{-- @csrf
+                        @csrf
                         @method('DELETE')
-                        {{-- il tag <a></a> non puo mai fare un submit di un form --}}
-                        {{-- <button class="btn btn-outline-danger">Delete</button> --}}
-                    {{-- </form> --}} 
+                        
+                        <button class="btn btn-outline-danger">Delete</button> 
+                    </form>
 
                 </td>
             </tr>

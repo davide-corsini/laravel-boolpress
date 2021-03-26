@@ -18,8 +18,8 @@
             </ul>
         </div>
     @endif
-    <form method="post" action="">
-        @method('POST')
+    <form method="POST" action="{{route('post.store')}}">
+        {{-- @method('POST') --}}
         @csrf
         <div class="form-group">
             <label for="input-title">Titolo</label>

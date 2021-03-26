@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-//NON MI VA 
 use Illuminate\Support\Str;
 
 use App\Http\Controllers\Controller;
@@ -11,6 +10,9 @@ use App\Post;
 //per utilizzare il create collegato alla crude STORE
 use Illuminate\Support\Facades\Auth;
 
+
+//uso il modle Tag
+use App\Tag;
 class PostController extends Controller
 {
     /**
@@ -34,8 +36,13 @@ class PostController extends Controller
      */
     public function create()
     {
-        //NON E QUESTO ERRORE
-        return view('admin.post.create');
+        
+        $tags = Tag::all();
+
+        $data = [
+            'tags' => $tags
+        ];
+        return view('admin.post.create', $data);
     }
 
     /**
@@ -91,10 +98,12 @@ class PostController extends Controller
      */
     public function edit( $post )
     {
-       $post = Post::where('slug', $post )->firstOrFail();
+        $post = Post::where('slug', $post )->firstOrFail();
+        $tags = Tag::all();
 
         $data = [
-                'post' => $post
+                'post' => $post,
+                'tags' => $tags
             ];
         return view('admin.post.edit', $data);
   
@@ -111,7 +120,11 @@ class PostController extends Controller
         $data = $request->all();
         $post->update($data);
         //anche qui ho bisogno del redirect al return
-        return redirect()->route('post.show', $post);
+        if(array_key_exists('tags', $data)){
+                $post->tags()->sync($data['tags']);
+        }
+        
+        return redirect()->route('post.index', $post);
     }
 
     /**
@@ -122,6 +135,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->tags()->sync([]);
+
         $post->delete();
 
         return redirect()->route('post.index');

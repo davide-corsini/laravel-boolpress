@@ -43,6 +43,13 @@ class TagSeeder extends Seeder
 
                 // $newPost->slug = Str::slug($newPost->title);
                 $newPost->save();
+
+                //  $newPost->tags()->sync($data['tags']);
+                //nel caso l'utente non check nulla effettuo controllo
+                if(array_key_exists('tags', $data)){
+                    $newPost->tags()->sync($data['tags']);
+
+                }
         }
     }
 }

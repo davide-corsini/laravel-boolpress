@@ -19,7 +19,7 @@
         </div>
     @endif
     <form method="POST" action="{{route('post.store')}}">
-        {{-- @method('POST') --}}
+        @method('POST')
         @csrf
         <div class="form-group">
             <label for="input-title">Titolo</label>
@@ -29,6 +29,17 @@
             <label for="input-content">Descrizione articolo da postare:</label>
                 <textarea class="form-control" id="input-content" name="content" rows="3"></textarea>
         </div>
+        @foreach ($tags as $tag)
+            <div class="form-group form-check">
+                <input type="checkbox"  name="tags[]"   value="{{$tag->id}}">
+                {{--//quando ci sono le checkbox dobbiamo predisporre il name
+                come un array--}}
+                <label class="form-check-label" for="exampleCheck1">
+                {{$tag->name}}
+                </label>
+            </div>
+            
+        @endforeach
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

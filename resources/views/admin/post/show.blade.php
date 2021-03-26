@@ -1,6 +1,12 @@
-@extends('layouts.dashboard')
+@extends('layouts.appadmin')
 
-@section('content')
-    ciao ciao 
+@section('content-admin')
+    {{-- <h3>{{$post['title']}}</h3>
+    <p>{{$post['content']}}</p> --}}
+    
+
+
+    <h3>{{$post->title}}</h3>
+    <p>{{$post->content}}</p>
 
 @endsection

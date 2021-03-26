@@ -53,9 +53,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post = Post::all();
+        // $post = Post::all();
+
         $data = [
-            'posts' => $posts
+            'post' => $post
         ];
         return view('admin.post.show', $data);
     }

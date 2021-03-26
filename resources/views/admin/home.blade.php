@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
-
+@section('title', 'HOMEPAGE-ADMIN')
 @section('content')
 
 
-
+ciaooooooooooooooooo
 
 @endsection
 

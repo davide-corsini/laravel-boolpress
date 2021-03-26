@@ -71,9 +71,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show( $post)
     {
         // $post = Post::all();
+        //firstOrFail se non lo trovi mandami errore
+        $post = Post::where('slug', $post )->firstOrFail();
 
         $data = [
             'post' => $post
@@ -87,13 +89,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit( $post )
     {
+       $post = Post::where('slug', $post )->firstOrFail();
 
         $data = [
                 'post' => $post
             ];
-            return view('admin.post.edit', $data);
+        return view('admin.post.edit', $data);
   
     }
     /**

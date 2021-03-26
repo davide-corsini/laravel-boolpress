@@ -19,7 +19,7 @@
                 <td>
                     {{--In teoria lui si aspetta un id ma laravel é forte e puo semplicemente completarlo senza freccia id --}}
                     <a class="btn btn-outline-info" href="{{ route('post.show', $item->slug) }}">Dettagli</a>
-                    <a class="btn btn-outline-warning" href="{{ route('post.edit', $item) }}">Modifica</a>
+                    <a class="btn btn-outline-warning" href="{{ route('post.edit', $item->slug) }}">Modifica</a>
                     
                     <form class="d-inline-block" method="post" action="{{ route('post.destroy', $item) }}">
 

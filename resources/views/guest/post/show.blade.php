@@ -7,3 +7,4 @@
     <p>{{$post_selected->content}}</p>
     <p>Created by: {{$post_selected->user->name}}</p>
 @endsection
+

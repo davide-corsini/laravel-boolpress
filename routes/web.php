@@ -30,7 +30,15 @@ Route::prefix('admin')
 ->group(function(){
     Route::get('/', 'HomeController@index')
     ->name('home');
+    // Route::resource('/post', 'PostController');
     //successivamente posso inserirci tutte le rotte di cui ho bisogno
+    Route::resource( '/post', 'PostController');
 });
 
 // Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+
+
+// Route::get('admin/prova', function(){
+//     return view('admin.post.index');
+//     // return 'ciao';
+// });

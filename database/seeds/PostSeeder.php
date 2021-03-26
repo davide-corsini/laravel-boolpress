@@ -53,6 +53,11 @@ class PostSeeder extends Seeder
             // $newPost->slug = Str::slug($newPost->title);
             $newPost->save();
 
+
+
+
+
+
         }
     }
 }

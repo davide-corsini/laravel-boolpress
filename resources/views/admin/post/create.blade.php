@@ -29,6 +29,10 @@
             <label for="input-content">Descrizione articolo da postare:</label>
                 <textarea class="form-control" id="input-content" name="content" rows="3"></textarea>
         </div>
+        <div class="form-group">
+            <label for="input-img">Descrizione articolo da postare:</label>
+                <textarea class="form-control" id="input-img" name="post_img" rows="3"></textarea>
+        </div>
         @foreach ($tags as $tag)
             <div class="form-group form-check">
                 <input type="checkbox"  name="tags[]"   value="{{$tag->id}}">

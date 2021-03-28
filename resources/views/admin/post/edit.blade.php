@@ -24,7 +24,11 @@
         </div>
         <div class="form-group">
             <label for="input-content">Descrizione articolo da postare:</label>
-                <textarea value="{{$post->content}}" class="form-control" id="input-content" name="content" rows="3"></textarea>
+                <textarea value="{{$post->content}}" class="form-control" id="input-content" name="content" rows="3">{{$post->content}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="input-post_img">Descrizione articolo da postare:</label>
+                <textarea value="{{$post->post_img}}" class="form-control" id="input-post_img" name="post_img" rows="3">{{$post->post_img}}</textarea>
         </div>
 
         @foreach ($tags as $tag)

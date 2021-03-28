@@ -16,6 +16,7 @@ class UpdatePostsTable extends Migration
         //aggiungo colonna User_id ALL INTERNO DELLA TABELLA POST
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->after('id');
+            $table->text('post_img')->after('content');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -28,8 +29,10 @@ class UpdatePostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('post_user_id_foreign');
-            $table->dropColumn('usre_id');
+            $table->dropForeign('posts_user_id_foreign');
+            $table->dropColumn('user_id');
+            $table->dropColumn('post_img');
+
         });
     }
 }

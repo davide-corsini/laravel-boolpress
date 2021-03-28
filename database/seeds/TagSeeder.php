@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Tag;
-use App\User;
 use App\Post;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -46,10 +45,10 @@ class TagSeeder extends Seeder
 
                 //  $newPost->tags()->sync($data['tags']);
                 //nel caso l'utente non check nulla effettuo controllo
-                if(array_key_exists('tags', $data)){
-                    $newPost->tags()->sync($data['tags']);
+                // if(array_key_exists('tags', $data)){
+                //     $newPost->tags()->sync($data['tags']);
 
-                }
+                // }
         }
     }
 }

@@ -17,7 +17,7 @@
                 <td><h2>{{$item->name}}</h2></td>
                 <td><p>{{$item->content}}</p></td>
                 <td>
-                    {{--In teoria lui si aspetta un id ma laravel é forte e puo semplicemente completarlo senza freccia id --}}
+                    {{-- In teoria lui si aspetta un id ma laravel é forte e puo semplicemente completarlo senza freccia id --}} 
                     <a class="btn btn-outline-info" href="{{ route('post.show', $item->slug) }}">Dettagli</a>
                     <a class="btn btn-outline-warning" href="{{ route('post.edit', $item->slug) }}">Modifica</a>
                     
@@ -27,7 +27,8 @@
                         @method('DELETE')
                         
                         <button class="btn btn-outline-danger">Delete</button> 
-                    </form>
+                    </form> 
+                    
 
                 </td>
             </tr>

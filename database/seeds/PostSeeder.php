@@ -26,6 +26,7 @@ class PostSeeder extends Seeder
             $newPost = new Post();
             $newPost->title = $faker->sentence(4);
             $newPost->content = $faker->text(500);
+            $newPost->post_img = $faker->imageUrl(640, 480, 'animals', true);
             $slug = Str::slug('titolo-numero'); //in teoria ci andrebbe messo il title
             
             //se postPresente risulterá NULL allora non entro nel ciclo while

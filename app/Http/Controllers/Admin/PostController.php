@@ -23,9 +23,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+        $tags = Tag::all();
         $data = [
-            'posts' => $posts
+            'posts' => $posts,
+            'tags' => $tags
         ];
+        
         return view('admin.post.index', $data);
     }
 

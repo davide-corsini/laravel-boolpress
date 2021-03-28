@@ -4,7 +4,6 @@
         <thead>
             <tr>
             <th scope="col">#id</th>
-            <th scope="col">Titlo</th>
             <th scope="col">Descrizione</th>
             <th scope="col">Dettagli movie</th>
             </tr>
@@ -13,9 +12,7 @@
         <tbody>
             <tr>
                 <th scope="row">{{$item->id}}</th>
-                {{-- <th>{{$item-id}}</th> --}}
-                <td><h2>{{$item->name}}</h2></td>
-                <td><p>{{$item->content}}</p></td>
+                <td style="max-width: 550px;"><p>{{$item->content}}</p></td>
                 <td>
                     {{-- In teoria lui si aspetta un id ma laravel é forte e puo semplicemente completarlo senza freccia id --}} 
                     <a class="btn btn-outline-info" href="{{ route('post.show', $item->slug) }}">Dettagli</a>
@@ -28,9 +25,17 @@
                         
                         <button class="btn btn-outline-danger">Delete</button> 
                     </form> 
-                    
+                   
 
                 </td>
+                <td>
+                @foreach ($tags as $tag)
+                    @if ( $item->tags->contains($tag->id) == 'checked')
+                    {{ $tag->slug }}      
+                    @endif
+                @endforeach
+              </td>
+
             </tr>
         </tbody>
         @endforeach

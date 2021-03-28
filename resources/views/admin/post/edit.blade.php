@@ -34,9 +34,10 @@
         @foreach ($tags as $tag)
 
             <div class="form-group form-check">
-                <input type="checkbox"  class="form-check-input" name="tags[]"   value="{{$tag->id}}">
+                <input type="checkbox"  class="form-check-input" name="tags[]"  {{$post->tags->contains($tag->id) ? 'checked' : ''}} value="{{$tag->id}}">
+                 {{--  --}}
                 {{--NON FUNGE--}}
-                {{-- {{$post->$tags->contains($tag->id) ? 'checked' : ''}} --}}
+                {{-- {{$post->$tags->contains($tag->id) ? 'checked' : ''}}  --}}
                 {{--//quando ci sono le checkbox dobbiamo predisporre il name
                 come un array--}}
 

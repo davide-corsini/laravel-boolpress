@@ -3,7 +3,7 @@
 @section('content')
         
 
-
+<div class="bcg_index">
     <h1>Tutti i post del mio Blog</h1>
     {{--Ciclo su variabile $array associativa in metodo index del Post Controller--}}
     <div class="my_container">
@@ -37,5 +37,5 @@
             </div>
                 @endforeach
         </div>
-
+</div>
 @endsection

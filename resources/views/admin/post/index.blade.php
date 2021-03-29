@@ -25,15 +25,16 @@
                         
                         <button class="btn btn-outline-danger">Delete</button> 
                     </form> 
-                   
+                    
 
                 </td>
                 <td>
-                @foreach ($tags as $tag)
-                    @if ( $item->tags->contains($tag->id) == 'checked')
-                    {{ $tag->slug }}      
+                    
+                {{-- @foreach ($tags as $tag)
+                    @if ( $posts->tags->contains($tag->id) == 'checked')
+                    {{ $tag->slug }}
                     @endif
-                @endforeach
+                @endforeach --}}
               </td>
 
             </tr>

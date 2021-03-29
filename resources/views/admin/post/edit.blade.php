@@ -15,12 +15,16 @@
     @endif
 
 
-    <form method="POST" action="{{route('post.update', $post )}}">
+    <form method="POST" action="{{route('post.update', $post )}}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
             <label for="input-title">Titolo</label>
             <input type="text" class="form-control" name="title" value="{{$post->slug}}" id="input-title" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="img">Carica Immagine</label>
+            <input type="range" name="image" class="form-control-range" id="img">
         </div>
         <div class="form-group">
             <label for="input-content">Descrizione articolo da postare:</label>

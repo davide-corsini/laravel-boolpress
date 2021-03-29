@@ -16,7 +16,7 @@
             </ul>
         </div>
     @endif
-    <form method="POST" action="{{route('post.store')}}">
+    <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
         @method('POST')
         @csrf
         <div class="form-group">
@@ -24,9 +24,10 @@
             <input type="text" class="form-control" name="title" id="input-title" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
-            <label for="input-content">Descrizione articolo da postare:</label>
-                <textarea class="form-control" id="input-content" name="content" rows="3"></textarea>
+            <label for="img">Carica Immagine</label>
+            <input type="file" class="form-control-file" id="immagine" name="image">
         </div>
+
         <div class="form-group">
             <label for="input-img">Descrizione articolo da postare:</label>
                 <textarea class="form-control" id="input-img" name="post_img" rows="3"></textarea>

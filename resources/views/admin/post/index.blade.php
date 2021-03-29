@@ -30,12 +30,15 @@
                 </td>
                 <td>
                     
-                {{-- @foreach ($tags as $tag)
-                    @if ( $posts->tags->contains($tag->id) == 'checked')
+                @forelse ($tags as $tag)
+                
+                    @if ( $item->tags->contains($tag->id) == 'checked')
                     {{ $tag->slug }}
                     @endif
-                @endforeach --}}
-              </td>
+                    @empty
+                    <p>No tags</p>
+                @endforelse
+                </td>
 
             </tr>
         </tbody>

@@ -11,6 +11,8 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 
 
+use Illuminate\Support\Facades\Storage;
+
 //uso il modle Tag
 use App\Tag;
 class PostController extends Controller
@@ -28,7 +30,6 @@ class PostController extends Controller
             'posts' => $posts,
             'tags' => $tags
         ];
-        
         return view('admin.post.index', $data);
     }
 
@@ -57,18 +58,26 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        // $data = $request->validate(['image'->'min:1|max:2048']);
         //devo prendere l id di colui che si é collegato al sito
-        $userId = Auth::id(); //questo fa riferimento a riga 8/9
         //creo una nuova istanza
         $newPost = new Post();
+        $userId = Auth::id(); //questo fa riferimento a riga 8/9
         //Adesso mi prendo tutte le fillable che sono nel model protected
         //come faccio? ->fill
-        $newPost->fill($data);
         $newPost->user_id = $userId;
         $newPost->slug = Str::slug($data['title']);
+
+        $cover_percorso = Storage::put('post_covers', $data['image']);
+        $data['cover_img'] = $cover_percorso;
+        $newPost->cover_img = $data['cover_img'];
+
+        $newPost->fill($data);
+        
+        
+        //includo instanza per colonna cover_img in tabella posts
         //salvo istanza
         $newPost->save();
-
         //ritorno con annesso redirect
         return redirect()->route('post.index');
 
@@ -121,6 +130,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post) //aggiungo classe Post a questo update perche nella route vuole l id e so che posso sostituirlo, perció facciamolo
     {
         $data = $request->all();
+        $cover_percorso = Storage::put('post_covers', $data['image']);
+        $data['cover_img'] = $cover_percorso;
         $post->update($data);
         //anche qui ho bisogno del redirect al return
         if(array_key_exists('tags', $data)){

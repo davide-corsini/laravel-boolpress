@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Tag;
+
+
+
 class Post extends Model
 {
     //dovró poi aggiungerlo nel momento in cui add Crude la Fkey user_id
     protected $fillable = [
-        'title', 'content', 'slug', 'post_img'
-
+        'title', 'content', 'slug', 'post_img', 'cover_img'
     ];
 
     //Instauro relazione con Model User

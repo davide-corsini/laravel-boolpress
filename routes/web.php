@@ -22,10 +22,10 @@ Route::get('/posts', 'PostController@index')->name('guest.post.index');
 
 //questa route mi indirizza al post selezionato grazie al PostController e al metodo @show
 Route::get('/posts/{slug}', 'PostController@show')->name('guest.post.show');
-//rotta per collegare contatti.blade.php
+//*rotta per collegare contatti.blade.php
 Route::get('/contatti', 'HomeController@contatti')->name('guest.contatti');
 
-//rotta per il form action del file contatti.blade.php
+//*rotta per il form action del file contatti.blade.php
 Route::post('/contatti', 'HomeController@sendcontact')->name('guest.contatti.sent');
 
 //rotta per esito messaggio

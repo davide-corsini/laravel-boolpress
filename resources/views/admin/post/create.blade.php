@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="img">Carica Immagine</label>
-            <input type="file" class="form-control-file" id="immagine" name="image">
+            <input type="file" name="image" class="form-control-range" id="img">
         </div>
 
         <div class="form-group">

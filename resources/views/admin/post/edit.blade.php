@@ -22,10 +22,25 @@
             <label for="input-title">Titolo</label>
             <input type="text" class="form-control" name="title" value="{{$post->slug}}" id="input-title" aria-describedby="emailHelp">
         </div>
+        @if ($post->cover_img)
+        <div>
+            <p>Immagine inserita: </p>
+            <img src="{{asset('storage/'.$post->cover_img)}}" alt="nome-img">
+        </div>
+        @else 
+            <p>Immagine non presente.</p>
+        {{-- <h4>Sfoglia per inserirne una nuova:</h4>
+            <div class="form-group">
+            <label for="img">Carica Immagine</label>
+            <input type="file" name="image" class="form-control-range" id="img">
+        </div> --}}
+        @endif
         <div class="form-group">
             <label for="img">Carica Immagine</label>
-            <input type="range" name="image" class="form-control-range" id="img">
+            <input type="file" name="image" class="form-control-range" id="img">
         </div>
+        <div>
+        
         <div class="form-group">
             <label for="input-content">Descrizione articolo da postare:</label>
                 <textarea value="{{$post->content}}" class="form-control" id="input-content" name="content" rows="3">{{$post->content}}</textarea>
@@ -39,7 +54,7 @@
 
             <div class="form-group form-check">
                 <input type="checkbox"  class="form-check-input" name="tags[]"  {{$post->tags->contains($tag->id) ? 'checked' : ''}} value="{{$tag->id}}">
-                 {{--  --}}
+                {{--  --}}
                 {{--NON FUNGE--}}
                 {{-- {{$post->$tags->contains($tag->id) ? 'checked' : ''}}  --}}
                 {{--//quando ci sono le checkbox dobbiamo predisporre il name
@@ -51,6 +66,10 @@
                 </label>
             </div>
         @endforeach
+
+        
+    
+    
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

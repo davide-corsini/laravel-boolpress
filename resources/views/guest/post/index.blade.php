@@ -33,7 +33,9 @@
                         <a href="{{route('guest.post.show', $item->slug)}}" class="card-link">Post's details</a>    
                     </p>
                 </div>
-                
+                <div class="main_image">
+                    <img style="border-radius: 50%;" class="cover_img" src="{{asset('storage/'.$item->cover_img)}}" alt="post_immagine">
+                </div>
             </div>
                 @endforeach
         </div>

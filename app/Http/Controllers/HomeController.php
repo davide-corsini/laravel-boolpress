@@ -24,6 +24,8 @@ class HomeController extends Controller
     public function contatti(){
         return view('guest.post.contatti');
     }
+
+
     
     public function sendcontact(Request $request){
         $data = $request->all();
@@ -37,6 +39,8 @@ class HomeController extends Controller
         return redirect()->route('validation')->with('status', 'Il messaggio é stato inviato correttamente, grazie per averci contattato');
 
     }
+
+    
 
 
     public function contattoInviato(){

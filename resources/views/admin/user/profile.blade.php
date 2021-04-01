@@ -20,7 +20,7 @@
                     @csrf
                     @method('POST')
                     <button class="btn btn-primary">
-                        Genera Api Token
+                        Genera Api Token CIAO
                     </button>
                 </form>
                 @endif

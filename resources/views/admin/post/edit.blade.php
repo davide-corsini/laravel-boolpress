@@ -29,11 +29,6 @@
         </div>
         @else 
             <p>Immagine non presente.</p>
-        {{-- <h4>Sfoglia per inserirne una nuova:</h4>
-            <div class="form-group">
-            <label for="img">Carica Immagine</label>
-            <input type="file" name="image" class="form-control-range" id="img">
-        </div> --}}
         @endif
         <div class="form-group">
             <label for="img">Carica Immagine</label>
@@ -54,9 +49,7 @@
 
             <div class="form-group form-check">
                 <input type="checkbox"  class="form-check-input" name="tags[]"  {{$post->tags->contains($tag->id) ? 'checked' : ''}} value="{{$tag->id}}">
-                {{--  --}}
-                {{--NON FUNGE--}}
-                {{-- {{$post->$tags->contains($tag->id) ? 'checked' : ''}}  --}}
+
                 {{--//quando ci sono le checkbox dobbiamo predisporre il name
                 come un array--}}
 

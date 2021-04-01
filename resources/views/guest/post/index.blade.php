@@ -10,16 +10,6 @@
         @foreach ($array as $item)
         <div class="my_row">
 
-        {{-- <div class="card d-flex" style="width: 18rem;">
-            <div class="card-body card d-flex">
-                <h3 class="card-title">{{$item->title}}</h3>
-                <p class="card-text">{{$item->content}}</p>
-            </div>
-            <p>{{$item->user->name}}</p>
-            <div class="card-body">
-                <a href="{{route('guest.post.show', $item->slug)}}" class="card-link">Post's details</a>
-            </div>
-        </div> --}}
                 <div class="box_image">
                     <img style="border-radius: 50%;" class="post_img" src="{{$item->post_img}}" alt="post_immagine">
                 </div>
@@ -33,9 +23,15 @@
                         <a href="{{route('guest.post.show', $item->slug)}}" class="card-link">Post's details</a>    
                     </p>
                 </div>
+                @if (!$item->cover_img)
+                    <div class="main_image">
+                    <img style="border-radius: 50%;" class="cover_img" src="https://soliloquywp.com/wp-content/uploads/2016/08/How-to-Set-a-Default-Featured-Image-in-WordPress.png" alt="post_immagine">
+                </div>
+                @else
                 <div class="main_image">
                     <img style="border-radius: 50%;" class="cover_img" src="{{asset('storage/'.$item->cover_img)}}" alt="post_immagine">
                 </div>
+                @endif
             </div>
                 @endforeach
         </div>

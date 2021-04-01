@@ -17,3 +17,26 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//creo la mia prima rotta che nel mio caso puó essere sia get, che post.
+Route::get('/posts', 'Api\PostController@index')->middleware('api_token');
+//a quessto punto devo crearmi una folder API e un controller POSTCONTROLLER con un metodo INDEX
+//ci sono delle rotte che hanno in automatico api davanti , sono tutte quelle che creo dentro il file api.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

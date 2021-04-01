@@ -38,9 +38,13 @@ Route::prefix('admin')
 ->group(function(){
     Route::get('/', 'HomeController@index')
     ->name('home');
-    // Route::resource('/post', 'PostController');
+    //Rotta per vedere i dati dell'utente
+    Route::get('/profile', 'HomeController@profile')->name('profile');
+    //rotta per la action di genera il token nel file profile.blade
+    Route::post('/genera-token', 'HomeController@generaToken')->name('genera-token');
     //successivamente posso inserirci tutte le rotte di cui ho bisogno
     Route::resource( '/post', 'PostController');
+
 });
 
 // Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
@@ -114,3 +118,139 @@ Route::prefix('admin')
 // |        |           |                        |                  |
 //                              | guest      |
 // +--------+-----------+------------------------+------------------+------------------------------------------------------------------------+------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
